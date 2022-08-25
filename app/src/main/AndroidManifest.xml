@@ -32,7 +32,6 @@
         android:exported="true"
         android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|keyboard|keyboardHidden|navigation"
         android:launchMode="singleTask"
-        android:resizeableActivity="false"
         android:screenOrientation="fullUser"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
       <intent-filter>
