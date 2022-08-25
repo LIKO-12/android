@@ -25,13 +25,12 @@
   <application
       android:allowBackup="true"
       android:icon="@drawable/love"
-      android:label="LÖVE for Android"
+      android:label="LIKO-12"
       android:usesCleartextTraffic="true" >
     <activity
         android:name="org.love2d.android.GameActivity"
         android:exported="true"
         android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|keyboard|keyboardHidden|navigation"
-        android:label="LÖVE for Android"
         android:launchMode="singleTask"
         android:screenOrientation="landscape"
         android:resizeableActivity="false"

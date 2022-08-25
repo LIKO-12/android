@@ -5,9 +5,9 @@ android {
     buildToolsVersion '32.0.0'
     ndkVersion '21.4.7075529'
     defaultConfig {
-        applicationId 'org.love2d.android'
         versionCode 30
         versionName '11.4'
+        applicationId 'me.ramilego4game.liko12'
         minSdkVersion 16
         targetSdkVersion 32
     }
