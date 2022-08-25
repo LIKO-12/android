@@ -6,9 +6,9 @@ android {
     // See https://code.google.com/p/android/issues/detail?id=52962
     // and http://stackoverflow.com/questions/27277433/why-does-gradle-build-my-module-in-release-mode-when-the-app-is-in-debug
     // defaultPublishConfig "debug"
-    ndkVersion '21.3.6528147'
     compileSdkVersion 32
     buildToolsVersion '32.0.0'
+    ndkVersion '21.4.7075529'
 
     defaultConfig {
         compileSdkVersion 32
