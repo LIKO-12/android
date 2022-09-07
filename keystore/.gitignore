@@ -1,0 +1,3 @@
+# A directory for storing the signing keystore
+*.*
+!.gitignore

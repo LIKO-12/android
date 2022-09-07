@@ -1,6 +1,24 @@
 apply plugin: 'com.android.application'
 
+def keystorePropertiesFile = rootProject.file("keystore/liko12.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
 android {
+    signingConfigs {
+        upload {
+            storeFile rootProject.file("keystore/liko12.jks")
+            storePassword keystoreProperties['storePassword']
+            keyAlias 'upload'
+            keyPassword keystoreProperties['keyPassword']
+        }
+        standalone {
+            storeFile rootProject.file("keystore/liko12.jks")
+            storePassword keystoreProperties['storePassword']
+            keyAlias 'standalone'
+            keyPassword keystoreProperties['keyPassword']
+        }
+    }
     compileSdkVersion 32
     buildToolsVersion '32.0.0'
     ndkVersion '21.4.7075529'
@@ -34,11 +52,13 @@ android {
         googlePlay {
             dimension 'destribution'
             versionNameSuffix '-googleplay'
+            signingConfig signingConfigs.upload
         }
         standalone {
             dimension 'destribution'
             versionNameSuffix '-standalone'
             applicationIdSuffix '.standalone'
+            signingConfig signingConfigs.standalone
         }
     }
     lintOptions {
