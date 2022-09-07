@@ -17,7 +17,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    flavorDimensions 'mode', 'recording'
+    flavorDimensions 'mode', 'recording', 'destribution'
     productFlavors {
         normal {
             dimension 'mode'
@@ -30,6 +30,15 @@ android {
         }
         noRecord {
             dimension 'recording'
+        }
+        googlePlay {
+            dimension 'destribution'
+            versionNameSuffix '-googleplay'
+        }
+        standalone {
+            dimension 'destribution'
+            versionNameSuffix '-standalone'
+            applicationIdSuffix '.standalone'
         }
     }
     lintOptions {
