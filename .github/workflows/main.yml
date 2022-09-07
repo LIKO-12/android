@@ -16,10 +16,21 @@ jobs:
         distribution: adopt-hotspot
         java-version: 11
         cache: gradle
+    - name: Provide Keystore
+      env:
+        ANDROID_KEYSTORE: ${{ secrets.ANDROID_KEYSTORE }}
+      run: |
+        echo $ANDROID_KEYSTORE | base64 --decode > keystore/keystore.zip;
+        unzip keystore/keystore.zip -d keystore;
     - name: Build
-      run: bash ./gradlew assembleEmbedRelease bundleEmbedNoRecordRelease
-    - name: Artifact (Embed AAB w/o recording)
+      run: bash ./gradlew assembleEmbedNoRecordStandaloneRelease bundleEmbedNoRecordGooglePlayRelease
+    - name: Artifact (Standalone APK)
       uses: actions/upload-artifact@v2
       with:
-        name: love-android-embed.aab
-        path: app/build/outputs/bundle/embedNoRecordRelease/app-embed-noRecord-release.aab
+        name: liko-android-standalone.apk
+        path: app/build/outputs/apk/embedNoRecordStandalone/release/app-embed-noRecord-standalone-release.apk
+    - name: Artifact (GooglePlay AAB)
+      uses: actions/upload-artifact@v2
+      with:
+        name: liko-android-googleplay.aab
+        path: app/build/outputs/bundle/embedNoRecordGooglePlayRelease/app-embed-noRecord-googlePlay-release.aab
